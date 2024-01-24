@@ -89,8 +89,6 @@ Since the given data for the task is not a dynamic data, app logic is still supp
 
     "package:mine New Data Found"
 
-## API Reference
-
 #### Things can be improved:
 
 1 - Loading State can be added.
