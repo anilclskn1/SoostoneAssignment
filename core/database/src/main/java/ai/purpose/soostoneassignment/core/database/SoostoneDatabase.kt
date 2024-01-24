@@ -4,10 +4,8 @@ import ai.purpose.soostoneassignment.core.database.dao.ImageDao
 import ai.purpose.soostoneassignment.core.database.dao.PokemonDao
 import ai.purpose.soostoneassignment.core.database.model.ImageEntity
 import ai.purpose.soostoneassignment.core.database.model.PokemonEntity
-import ai.purpose.soostoneassignment.core.database.model.UrlConverter
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 
 @Database(
     entities = [

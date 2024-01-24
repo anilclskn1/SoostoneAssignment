@@ -9,14 +9,9 @@ import ai.purpose.soostoneassignment.core.database.dao.PokemonDao
 import ai.purpose.soostoneassignment.core.database.model.ImageEntity
 import ai.purpose.soostoneassignment.core.database.model.PokemonEntity
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.NetworkCapabilities
-import android.os.Build
 import android.util.Log
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -28,15 +23,13 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import javax.inject.Inject
-import kotlin.io.encoding.Base64
-import kotlin.io.encoding.ExperimentalEncodingApi
-import kotlin.math.exp
 
 class PokemonRepositoryImpl @Inject constructor(
     private val pokemonDao: PokemonDao,
     private val imageDao: ImageDao,
     private val apiService: PokemonApiService
 ) : PokemonRepository {
+    @SuppressLint("SuspiciousIndentation")
     override fun getPokemonList(): Flow<List<Pokemon>> {
 
 
@@ -92,7 +85,7 @@ class PokemonRepositoryImpl @Inject constructor(
                     }
 
             }catch (e: IOException){
-                Log.d("Exception",e.localizedMessage)
+                Log.d("Exception",e.localizedMessage!!)
                 emittedList = localPokemonList
             }
             emit(emittedList)

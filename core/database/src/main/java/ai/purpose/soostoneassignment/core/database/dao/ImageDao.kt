@@ -1,7 +1,6 @@
 package ai.purpose.soostoneassignment.core.database.dao
 
 import ai.purpose.soostoneassignment.core.database.model.ImageEntity
-import ai.purpose.soostoneassignment.core.database.model.PokemonEntity
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert

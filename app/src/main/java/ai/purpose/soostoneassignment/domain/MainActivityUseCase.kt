@@ -43,19 +43,13 @@ class MainActivityUseCase @Inject constructor(
     private suspend fun base64ToImageBitmap(base64String: String): ImageBitmap? {
         return withContext(Dispatchers.IO) {
             try {
-                // Replace characters that are not part of the Base64 alphabet
                 val base64Image = base64String.replace(Regex("[^A-Za-z0-9+/=]"), "")
 
-                // Log the modified Base64 string
-                Log.d("Base64Debug", "Base64 String: $base64Image")
-
-                // Decode the modified Base64 string
                 val decodedByteArray: ByteArray = Base64.decode(base64Image)
 
-                // Decode the byte array into a Bitmap
-                val bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
+                val bitmap =
+                    BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
 
-                // Convert the Bitmap to ImageBitmap
                 bitmap?.asImageBitmap()
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -64,8 +58,4 @@ class MainActivityUseCase @Inject constructor(
             }
         }
     }
-
-
-
-
 }

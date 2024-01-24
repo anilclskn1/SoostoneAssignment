@@ -6,15 +6,12 @@ import ai.purpose.soostoneassignment.model.PokemonModel
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import ai.purpose.soostoneassignment.ui.theme.SoostoneAssignmentTheme
 import ai.purpose.soostoneassignment.viewmodel.MainViewModel
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
@@ -48,7 +45,6 @@ class MainActivity : AppCompatActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("ANİL", viewModel.uiState.value.pokemonList.toString())
         setContent {
             SoostoneAssignmentTheme {
                 val uiState = viewModel.uiState.collectAsState()

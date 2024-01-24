@@ -1,7 +1,6 @@
 package ai.purpose.soostoneassignment.core.data.model
 
 import ai.purpose.soostoneassignment.core.database.model.PokemonEntity
-import java.net.URL
 
 data class Pokemon(
     val id: Long,

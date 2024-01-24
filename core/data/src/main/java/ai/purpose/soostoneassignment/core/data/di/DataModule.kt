@@ -25,7 +25,6 @@ interface DataModule {
         fun providePokemonApiService(retrofit: Retrofit): PokemonApiService {
             return retrofit.create(PokemonApiService::class.java)
         }
-
         @Provides
         fun provideRetrofit(): Retrofit {
             return Retrofit.Builder()

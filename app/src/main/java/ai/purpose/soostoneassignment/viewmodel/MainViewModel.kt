@@ -3,7 +3,6 @@ package ai.purpose.soostoneassignment.viewmodel
 import ai.purpose.soostoneassignment.domain.MainActivityUseCase
 import ai.purpose.soostoneassignment.model.PokemonModel
 import ai.purpose.soostoneassignment.view.SoostoneAppState
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +23,6 @@ class MainViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             useCase.getPokemonList().collectLatest { pokemonList ->
-                Log.d("KKFKJJKFF", pokemonList.toString())
                 _uiState.update {
                     it.copy(
                         pokemonList = pokemonList
@@ -41,6 +39,4 @@ class MainViewModel @Inject constructor(
             )
         }
     }
-
-
 }

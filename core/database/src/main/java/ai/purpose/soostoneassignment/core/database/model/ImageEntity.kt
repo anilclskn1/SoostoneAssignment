@@ -4,7 +4,6 @@ import ai.purpose.soostoneassignment.core.database.SoostoneDatabase
 import ai.purpose.soostoneassignment.core.database.model.ImageEntity.Companion.IMAGE_TABLE_NAME
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
