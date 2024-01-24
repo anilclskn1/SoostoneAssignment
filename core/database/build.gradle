@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'com.google.devtools.ksp'
+}
+
+android {
+    namespace 'ai.purpose.soostoneassignment.core.database'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+            arg("room.incremental", "true")
+            arg("room.expandProjection", "true")
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled rootProject.ext.release_minifyEnabled
+            debuggable rootProject.ext.release_debuggable
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled rootProject.ext.debug_minifyEnabled
+            debuggable rootProject.ext.debug_debuggable
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation "androidx.room:room-runtime:$androidx_room_runtime"
+    implementation "androidx.room:room-ktx:$androidx_room_runtime"
+    // To use Kotlin annotation processing tool (ksp)
+    ksp "androidx.room:room-compiler:$androidx_room_runtime"
+
+    implementation "com.google.dagger:hilt-android:$com_google_dagger_hilt_android"
+    kapt "com.google.dagger:hilt-compiler:$com_google_dagger_hilt_compiler"
+
+    // Paging3
+    implementation "androidx.room:room-paging:$androidx_room_runtime"
+    implementation "androidx.room:room-ktx:$androidx_room_runtime"
+}

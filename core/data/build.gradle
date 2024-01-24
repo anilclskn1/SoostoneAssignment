@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'ai.purpose.soostoneassignment.core.data'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled rootProject.ext.release_minifyEnabled
+            debuggable rootProject.ext.release_debuggable
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled rootProject.ext.debug_minifyEnabled
+            debuggable rootProject.ext.debug_debuggable
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation project(":core:database")
+
+    implementation "com.google.dagger:hilt-android:$com_google_dagger_hilt_android"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    kapt "com.google.dagger:hilt-compiler:$com_google_dagger_hilt_compiler"
+
+    implementation "androidx.core:core-ktx:$androidx_core_core_ktx"
+    testImplementation "junit:junit:$junit_junit"
+
+    implementation("androidx.paging:paging-runtime-ktx:$androidx_paging")
+    implementation("androidx.paging:paging-compose:$androidx_paging")
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.8'
+}

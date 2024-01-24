@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'ai.purpose.soostoneassignment.core.ui'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled rootProject.ext.release_minifyEnabled
+            debuggable rootProject.ext.release_debuggable
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled rootProject.ext.debug_minifyEnabled
+            debuggable rootProject.ext.debug_debuggable
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures{
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion rootProject.ext.kotlinCompilerExtensionVersion
+    }
+}
+
+
+dependencies {
+
+    implementation project(":core:data")
+
+    implementation "io.coil-kt:coil-compose:$io_coil_kt_coil_compose"
+
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$androidx_lifecycle_lifecycle_runtime_ktx"
+    implementation platform("androidx.compose:compose-bom:$androidx_compose_compose_bom")
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.foundation:foundation-android:1.6.0-alpha01'
+    implementation "androidx.navigation:navigation-compose:$androidx_navigation_navigation_compose"
+
+    androidTestImplementation platform("androidx.compose:compose-bom:$androidx_compose_compose_bom")
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugApi 'androidx.compose.ui:ui-tooling'
+    debugApi 'androidx.compose.ui:ui-test-manifest'
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle_lifecycle_runtime_ktx"
+    implementation "androidx.activity:activity-compose:$androidx_activity_activity_compose"
+
+    implementation "androidx.core:core-ktx:$androidx_core_core_ktx"
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat_appcompat"
+    implementation "com.google.android.material:material:$com_google_android_material_material"
+
+    testImplementation "junit:junit:$junit_junit"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso_espresso_core"
+}
