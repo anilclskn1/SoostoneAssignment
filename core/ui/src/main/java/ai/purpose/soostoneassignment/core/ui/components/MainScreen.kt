@@ -41,30 +41,27 @@ fun MainScreen(
 private fun MainScreen_Preview() {
         MainScreen(
             topBar = {
-                // Your top bar content goes here
                 Box(
                     modifier = Modifier
                         .background(Color.Blue)
                         .fillMaxWidth()
-                        .fillMaxHeight(0.1f) // Adjust height as needed
+                        .fillMaxHeight(0.1f)
                 )
             },
             bottomBar = {
-                // Your bottom bar content goes here
                 Box(
                     modifier = Modifier
                         .background(Color.Red)
                         .fillMaxWidth()
-                        .fillMaxHeight(0.1f) // Adjust height as needed
+                        .fillMaxHeight(0.1f)
                 )
             }
         ) {
-            // Your main content goes here
             Box(
                 modifier = Modifier
                     .background(Color.Green)
                     .fillMaxSize()
-                    .padding(top = 0.2.dp) // Adjust padding as needed
+                    .padding(top = 0.2.dp)
             )
         }
 
