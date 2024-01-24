@@ -89,4 +89,11 @@ Since the given data for the task is not a dynamic data, app logic is still supp
 
     "package:mine New Data Found"
 
+## API Reference
 
+#### Things can be improved:
+
+1 - Loading State can be added.
+
+2 - When there is no internet connection, if the app is launched
+    for the first time. Show dialog to user
